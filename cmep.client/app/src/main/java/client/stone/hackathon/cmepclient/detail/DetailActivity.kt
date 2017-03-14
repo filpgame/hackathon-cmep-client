@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import client.stone.hackathon.cmepclient.R
 import client.stone.hackathon.cmepclient.entity.Item
+import client.stone.hackathon.cmepclient.entity.User
 import client.stone.hackathon.cmepclient.util.FirebaseConstants
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.animation.GlideAnimation
@@ -23,6 +24,7 @@ import kotlinx.android.synthetic.main.content_detail.*
 
 class DetailActivity : AppCompatActivity() {
     lateinit var mRef: DatabaseReference
+    lateinit var mRef2: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +47,7 @@ class DetailActivity : AppCompatActivity() {
         productPrice.text = "R$ " + menu.preco.toString()
 
         mRef = FirebaseDatabase.getInstance().reference
+        mRef2 = FirebaseDatabase.getInstance().reference
 
         val fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setOnClickListener { view ->
@@ -58,15 +61,27 @@ class DetailActivity : AppCompatActivity() {
             item.status = 1
         val id = mRef.push().key
         item.id = id
-        mRef.child(FirebaseConstants.TABLE).child("7").child(FirebaseAuth.getInstance().currentUser?.uid).child(id).setValue(item, { databaseError, databaseReference ->
+        val user = User()
+        user.id = FirebaseAuth.getInstance().currentUser?.uid
+        user.name = FirebaseAuth.getInstance().currentUser?.displayName
+        mRef.child(FirebaseConstants.TABLE).child("1").child(FirebaseConstants.USER).child(FirebaseAuth.getInstance().currentUser?.uid).setValue(user, { databaseError, databaseReference ->
             if (databaseError != null) {
                 fab.isClickable = true
                 Toast.makeText(this, "Erro ao realizar pedido", Toast.LENGTH_LONG).show()
                 finish()
             } else {
                 fab.isClickable = false
-                Toast.makeText(this, "Pedido realizado", Toast.LENGTH_LONG).show()
-                finish()
+                mRef2.child(FirebaseConstants.ORDER).child(user.id).child(item.id).setValue(item, { databaseError, databaseReference ->
+                    if (databaseError != null) {
+                        fab.isClickable = true
+                        Toast.makeText(this, "Erro ao realizar pedido", Toast.LENGTH_LONG).show()
+                        finish()
+                    } else {
+                        fab.isClickable = false
+                        Toast.makeText(this, "Pedido realizado", Toast.LENGTH_LONG).show()
+                        finish()
+                    }
+                })
             }
         })
     }
