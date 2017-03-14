@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import client.stone.hackathon.cmepclient.R
 import client.stone.hackathon.cmepclient.detail.DetailActivity
-import client.stone.hackathon.cmepclient.entity.Menu
+import client.stone.hackathon.cmepclient.entity.Item
 import client.stone.hackathon.cmepclient.util.FirebaseConstants
 import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerAdapter
@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.item_grid_menu.view.*
  * A simple [Fragment] subclass.
  */
 class MenuFragment : Fragment() {
-    lateinit var mAdapter: FirebaseRecyclerAdapter<Menu, MenuHolder>
+    lateinit var mAdapter: FirebaseRecyclerAdapter<Item, MenuHolder>
     lateinit var mRef: DatabaseReference
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -45,11 +45,11 @@ class MenuFragment : Fragment() {
     }
 
     fun createAdapter() {
-        mAdapter = object : FirebaseRecyclerAdapter<Menu, MenuHolder>(Menu::class.java, R.layout.item_grid_menu, MenuHolder::class.java, mRef) {
-            public override fun populateViewHolder(holder: MenuHolder, menu: Menu, position: Int) {
+        mAdapter = object : FirebaseRecyclerAdapter<Item, MenuHolder>(Item::class.java, R.layout.item_grid_menu, MenuHolder::class.java, mRef) {
+            public override fun populateViewHolder(holder: MenuHolder, menu: Item, position: Int) {
                 holder.itemView.setOnClickListener {
                     val intent = Intent(activity, DetailActivity::class.java)
-                    intent.putExtra("menu",menu)
+                    intent.putExtra("menu", menu)
                     activity.startActivity(intent)
                     activity.finish()
                 }

@@ -1,5 +1,6 @@
 package client.stone.hackathon.cmepclient.entity;
 
+import com.google.firebase.database.IgnoreExtraProperties;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -7,11 +8,8 @@ import java.io.Serializable;
 /**
  * Created by Kanda on 14/03/2017.
  */
-
-public class Menu implements Serializable {
-    public Menu() {
-    }
-
+@IgnoreExtraProperties
+public class Item implements Serializable {
     @SerializedName("foto")
     private String foto;
     @SerializedName("nome")
@@ -20,7 +18,16 @@ public class Menu implements Serializable {
     private long preco;
     @SerializedName("descricao")
     private String descricao;
+    @SerializedName("status")
+    int status;
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public String getFoto() {
         return foto;
@@ -52,16 +59,5 @@ public class Menu implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Menu{" +
-                "foto='" + foto + '\'' +
-                ", nome='" + nome + '\'' +
-                ", preco='" + preco + '\'' +
-                ", descricao='" + descricao + '\'' +
-                '}';
     }
 }

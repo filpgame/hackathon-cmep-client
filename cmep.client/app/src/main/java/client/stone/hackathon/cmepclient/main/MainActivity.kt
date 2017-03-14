@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import client.stone.hackathon.cmepclient.R
 import client.stone.hackathon.cmepclient.menu.MenuFragment
+import client.stone.hackathon.cmepclient.order.OrderFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
-
+                replace(OrderFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
