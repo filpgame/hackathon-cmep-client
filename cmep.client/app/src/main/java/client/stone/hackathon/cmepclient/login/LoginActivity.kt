@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
 import client.stone.hackathon.cmepclient.R
-import client.stone.hackathon.cmepclient.main.MainActivity
+import client.stone.hackathon.cmepclient.establishments.EstablishmentActivity
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -67,10 +67,8 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
             val user = firebaseAuth.currentUser
             if (user != null) {
                 Toast.makeText(this, "Aguarde", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, EstablishmentActivity::class.java))
                 finish()
-            } else {
-                Toast.makeText(this, "Error Login", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -108,8 +106,9 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
                 val account = result.signInAccount
                 if (account != null)
                     firebaseAuthWithGoogle(account)
-                else
-                    Log.e("account", "null")
+                else {
+                    Toast.makeText(this, "Error Login", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

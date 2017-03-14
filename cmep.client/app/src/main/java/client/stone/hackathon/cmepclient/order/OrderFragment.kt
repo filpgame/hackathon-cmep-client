@@ -77,7 +77,7 @@ class OrderFragment : Fragment() {
     }
 
     fun emptyState() {
-        eventListener = mRef.addValueEventListener(object : ValueEventListener {
+        eventListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.childrenCount.toInt() == 0) {
                     emptyState.visibility = View.VISIBLE
@@ -89,7 +89,7 @@ class OrderFragment : Fragment() {
             override fun onCancelled(databaseError: DatabaseError) {
 
             }
-        })
+        }
         mRef.addValueEventListener(eventListener)
     }
 
