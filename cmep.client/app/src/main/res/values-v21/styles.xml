@@ -7,6 +7,6 @@
         <item name="android:actionBarStyle">@style/TransparentActionBar</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:windowTranslucentStatus">true</item>
-
+        <item name="android:windowNoTitle">true</item>
     </style>
 </resources>

@@ -22,7 +22,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:actionBarStyle">@style/TransparentActionBar</item>
-
+        <item name="android:windowNoTitle">true</item>
     </style>
 
     <style name="TransparentActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
