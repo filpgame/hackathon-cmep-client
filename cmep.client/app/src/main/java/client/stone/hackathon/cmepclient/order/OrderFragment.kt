@@ -46,8 +46,9 @@ class OrderFragment : Fragment() {
     }
 
     fun initReference() {
-        if (FirebaseAuth.getInstance().currentUser != null)
-            mRef = FirebaseDatabase.getInstance().reference.child(FirebaseConstants.TABLE).child("7").child(FirebaseAuth.getInstance().currentUser?.uid)
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            mRef = FirebaseDatabase.getInstance().reference.child(FirebaseConstants.ORDER).child(FirebaseAuth.getInstance().currentUser?.uid)
+        }
     }
 
     fun createAdapter() {

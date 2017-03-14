@@ -5,6 +5,8 @@ package client.stone.hackathon.cmepclient.util
  */
 object FirebaseConstants {
     val MENU = "menu"
-    val TABLE = "mesa"
+    val TABLE = "tables"
     val ESTABLISHMENTS = "establishments"
+    val USER = "client"
+    val ORDER = "order"
 }

@@ -24,15 +24,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".detail.DetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Detail" />
-        <activity android:name=".establishments.EstablishmentActivity" />
         <activity
             android:name=".Qrcode.QrcodeActivity"
             android:label="@string/title_activity_qrcode"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".establishments.EstablishmentActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>
