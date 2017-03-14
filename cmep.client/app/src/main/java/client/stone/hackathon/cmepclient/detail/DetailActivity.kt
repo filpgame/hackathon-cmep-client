@@ -56,7 +56,9 @@ class DetailActivity : AppCompatActivity() {
     fun addItemToCart(item: Item, view: View) {
         if (FirebaseAuth.getInstance().currentUser != null)
             item.status = 1
-        mRef.child(FirebaseConstants.TABLE).child("7").child(FirebaseAuth.getInstance().currentUser?.uid).push().setValue(item, { databaseError, databaseReference ->
+        val id = mRef.push().key
+        item.id = id
+        mRef.child(FirebaseConstants.TABLE).child("7").child(FirebaseAuth.getInstance().currentUser?.uid).child(id).setValue(item, { databaseError, databaseReference ->
             if (databaseError != null) {
                 fab.isClickable = true
                 Toast.makeText(this, "Erro ao realizar pedido", Toast.LENGTH_LONG).show()

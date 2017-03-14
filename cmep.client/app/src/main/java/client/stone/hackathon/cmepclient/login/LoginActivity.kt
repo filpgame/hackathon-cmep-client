@@ -55,7 +55,6 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
                 .build()
     }
 
-
     fun googleClient() {
         mGoogleClient = GoogleApiClient.Builder(this)
                 .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
@@ -63,12 +62,11 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
                 .build()
     }
 
-
     fun firebaseAuthListener() {
         mAuthListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser
             if (user != null) {
-                Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Aguarde", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             } else {
@@ -83,7 +81,6 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
         googleClient()
         mAuth.addAuthStateListener(mAuthListener)
     }
-
 
     private fun signIn() {
         val signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleClient)
@@ -116,7 +113,6 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
             }
         }
     }
-
 
     override fun onConnectionFailed(p0: ConnectionResult) {
 

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import client.stone.hackathon.cmepclient.R
 import client.stone.hackathon.cmepclient.menu.MenuFragment
 import client.stone.hackathon.cmepclient.order.OrderFragment
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
+                Toast.makeText(this, "Em breve", Toast.LENGTH_SHORT).show()
                 return@OnNavigationItemSelectedListener true
             }
         }

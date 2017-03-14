@@ -10,6 +10,8 @@ import java.io.Serializable;
  */
 @IgnoreExtraProperties
 public class Item implements Serializable {
+    @SerializedName("id")
+    private String id;
     @SerializedName("foto")
     private String foto;
     @SerializedName("nome")
@@ -20,6 +22,15 @@ public class Item implements Serializable {
     private String descricao;
     @SerializedName("status")
     int status;
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public int getStatus() {
         return status;
