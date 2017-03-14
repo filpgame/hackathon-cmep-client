@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "757659207724",
+    "firebase_url": "https://hackathon-verifone.firebaseio.com",
+    "project_id": "hackathon-verifone",
+    "storage_bucket": "hackathon-verifone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757659207724:android:4e025ff909c92b18",
+        "android_client_info": {
+          "package_name": "client.stone.hackathon.cmepclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "757659207724-do9fmm6q0v1nurkm76lg1ajoeben3gmb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA64za3LD-mncZfG9XaRQseCf4Hb24UKnQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
