@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -34,6 +35,8 @@ dependencies {
     compile 'com.google.firebase:firebase-auth:10.2.0'
     compile 'com.google.android.gms:play-services-auth:10.2.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }
 apply plugin: 'com.google.gms.google-services'
 repositories {
