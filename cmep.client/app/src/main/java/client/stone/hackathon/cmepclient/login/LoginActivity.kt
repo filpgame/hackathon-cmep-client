@@ -113,8 +113,6 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
                     firebaseAuthWithGoogle(account)
                 else
                     Log.e("account", "null")
-            } else {
-                Toast.makeText(this, "Error login1", Toast.LENGTH_SHORT).show()
             }
         }
     }

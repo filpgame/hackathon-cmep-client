@@ -50,8 +50,7 @@ class MenuFragment : Fragment() {
                 holder.itemView.setOnClickListener {
                     val intent = Intent(activity, DetailActivity::class.java)
                     intent.putExtra("menu", menu)
-                    activity.startActivity(intent)
-                    activity.finish()
+                    startActivity(intent)
                 }
                 Glide.with(activity).load(menu.foto).into(holder.itemView.foto)
                 holder.itemView.nome.text = menu.nome
