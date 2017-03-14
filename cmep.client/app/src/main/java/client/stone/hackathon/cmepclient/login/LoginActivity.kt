@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
-import butterknife.ButterKnife
 import client.stone.hackathon.cmepclient.R
+import client.stone.hackathon.cmepclient.main.MainActivity
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -38,7 +38,6 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        ButterKnife.bind(this)
         mAuth = FirebaseAuth.getInstance()
         execute()
         signIn.setOnClickListener { signIn() }
@@ -70,6 +69,8 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
             val user = firebaseAuth.currentUser
             if (user != null) {
                 Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
             } else {
                 Toast.makeText(this, "Error Login", Toast.LENGTH_SHORT).show()
             }
