@@ -71,7 +71,7 @@ class DetailActivity : AppCompatActivity() {
                 finish()
             } else {
                 fab.isClickable = false
-                mRef2.child(FirebaseConstants.ORDER).child(user.id).child(item.id).setValue(item, { databaseError, databaseReference ->
+                mRef2.child(FirebaseConstants.ORDER).child("1").child(user.id).child(item.id).setValue(item, { databaseError, databaseReference ->
                     if (databaseError != null) {
                         fab.isClickable = true
                         Toast.makeText(this, "Erro ao realizar pedido", Toast.LENGTH_LONG).show()

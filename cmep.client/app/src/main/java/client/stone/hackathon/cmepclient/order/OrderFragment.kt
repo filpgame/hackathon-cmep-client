@@ -32,6 +32,12 @@ class OrderFragment : Fragment() {
         return inflater!!.inflate(R.layout.fragment_order, container, false)
     }
 
+    override fun onStart() {
+        super.onStart()
+        initReference()
+        emptyState()
+    }
+
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         orderList.setHasFixedSize(true)
@@ -47,7 +53,7 @@ class OrderFragment : Fragment() {
 
     fun initReference() {
         if (FirebaseAuth.getInstance().currentUser != null) {
-            mRef = FirebaseDatabase.getInstance().reference.child(FirebaseConstants.ORDER).child(FirebaseAuth.getInstance().currentUser?.uid)
+            mRef = FirebaseDatabase.getInstance().reference.child(FirebaseConstants.ORDER).child("1").child(FirebaseAuth.getInstance().currentUser?.uid)
         }
     }
 
@@ -57,9 +63,9 @@ class OrderFragment : Fragment() {
                 public override fun populateViewHolder(holder: MenuHolder, order: Item, position: Int) {
                     holder.itemView.productName.text = order.nome
                     when (order.status) {
-                        1 -> holder.itemView.statusItem.text = "A fazer"
-                        2 -> holder.itemView.statusItem.text = "Preparando"
-                        3 -> holder.itemView.statusItem.text = "Servido"
+                        0 -> holder.itemView.statusItem.text = "A fazer"
+                        1 -> holder.itemView.statusItem.text = "Preparando"
+                        2 -> holder.itemView.statusItem.text = "Servido"
                     }
                     holder.itemView.setOnLongClickListener({
                         mRef.child(order.id).removeValue { databaseError, databaseReference ->

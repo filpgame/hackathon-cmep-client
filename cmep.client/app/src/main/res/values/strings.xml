@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Venum</string>
     <string name="title_home">Menu</string>
-    <string name="title_dashboard">Pedido</string>
+    <string name="title_dashboard">Pedidos</string>
     <string name="title_notifications">Perfil</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"

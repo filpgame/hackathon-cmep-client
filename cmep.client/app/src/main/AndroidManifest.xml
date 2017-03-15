@@ -29,7 +29,7 @@
             android:theme="@style/AppTheme.Detail" />
         <activity
             android:name=".establishments.EstablishmentActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
